@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Question 💖</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+        body {
+            background-color: #6a6667;
+            font-family: "Dancing Script", cursive;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+            text-align: center;
+            padding-top: 120px;
+            overflow: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.41);
+            padding: 40px 70px;
+            border-radius: 35px;
+            display: inline-block;
+            box-shadow: 0 12px 35px rgba(255, 77, 136, 0.35);
+            backdrop-filter: blur(10px);
+            z-index: 2;
+            position: relative;
+        }
+
+        h1 {
+            color: #000000;
+            font-size: 48px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 15px 45px;
+            font-size: 22px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .yes {
+            background-color: #ff4d88;
+            color: white;
+        }
+
+        .no {
+            background-color: #ffc2d1;
+            color: #c9184a;
+            position: absolute;
+        }
+
+        /* 💖 Floating Hearts */
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: pink;
+            transform: rotate(45deg);
+            animation: floatUp 6s infinite ease-in;
+            opacity: 0.7;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: pink;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: -10px;
+            top: 0;
+        }
+
+        @keyframes floatUp {
+            0% { bottom: -20px; opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { bottom: 110%; opacity: 0; }
+        }
+    </style>
+
+    <script>
+        function moveNoButton() {
+            const noBtn = document.getElementById("noBtn");
+            const x = Math.random() * (window.innerWidth - 200);
+            const y = Math.random() * (window.innerHeight - 200);
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        }
+
+        function sayNo() {
+            alert("I won’t take no for an answer 😌💖");
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>WILL YOU BE MY VALENTINE? 💘</h1>
+
+        <button class="yes" onclick="window.location.href='/yes'">
+            YES 💖
+        </button>
+
+        <button class="no" id="noBtn"
+                onmouseover="moveNoButton()"
+                onclick="sayNo()">
+            NO 🙄
+        </button>
+    </div>
+
+    <!-- 💕 Floating hearts -->
+    <div class="heart" style="left:10%; animation-delay:0s;"></div>
+    <div class="heart" style="left:30%; animation-delay:2s;"></div>
+    <div class="heart" style="left:50%; animation-delay:4s;"></div>
+    <div class="heart" style="left:70%; animation-delay:1s;"></div>
+    <div class="heart" style="left:90%; animation-delay:3s;"></div>
+
+</body>
+</html>
